@@ -1,7 +1,12 @@
 #include<iostream>
 using namespace std;
- int main()
- {
-    int arr[]{1,2,3,4};
-    cout<< arr[5/2];
- }
+int main()
+{
+   int x,t;
+   cin>>t;
+   while(t--)
+   {
+      cin>>x;
+      cout<< x*2*5<<endl;
+   }
+}

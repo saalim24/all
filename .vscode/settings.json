@@ -8,5 +8,6 @@
         "vector": "cpp",
         "xstring": "cpp",
         "xutility": "cpp"
-    }
+    },
+    "terminal.explorerKind": "integrated"
 }
