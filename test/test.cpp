@@ -1,25 +1,31 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int bs(int arr[],int n, int x)
-{
-    int low=0,high=n;
-    while (low<=high)
-    {
-        int mid=(low+high)/2;        
-    if (x==arr[mid])
-    return mid;
-    else if (x<arr[mid])
-        high = mid-1;
-    else low = mid +1;
-    }
-    return -1;
+const int m{3};
+const int n{5};
 
+void transpose(int mat[][n],int temp[][m])
+{
+    for (int i=0;i<n;i++)
+    {
+        for (int j=0;j<m;j++)
+        {
+            temp [i][j]= mat [j][i];
+        }
+    }
 }
 
 int main()
 {
-    int arr[]{1,3,4,6,7,8,12,45};
-    cout<< bs(arr,8,7);
-
+    int mat[m][n]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+    int temp[n][m];
+    transpose(mat,temp);
+    for (int i=0;i<n;i++)
+    {
+        for (int j=0;j<m;++j)
+        {
+            cout<< " " << temp [i][j];
+        }
+        cout<< endl;
+    }
 }
