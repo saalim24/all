@@ -1,9 +1,10 @@
+//author:Saalim24
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define ld long double
 #define vt vector
-//author:Saalim24
+#define endl "\n"
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 

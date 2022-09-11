@@ -1,30 +1,25 @@
+//author:Saalim24
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define ld long double
 #define vt vector
-//author:Saalim24
+#define endl "\n"
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 
 void solve() 
 {
-    int arr[] = {3,-4, 2,-3,-1, 7,-5};
-    int ans = INT_MAX;
-    int sum=0;
-
-    for (int i=0;i<7;i++)
+    int a,b;
+    cin>>a>>b;
+    int sq;
+    sq=a*b;
+    if (sq%2==0)
     {
-        if (arr[i]<ans)
-        sum+=arr[i];
-        if (arr[i]>0)
-        sum =0;
-        ans= min(ans,sum);
-        
+        cout<< sq/2;
     }
-    cout<< ans;
+    else cout<< (sq-1)/2;
     
-
 }
 
 int main() 
