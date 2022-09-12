@@ -8,18 +8,43 @@ using namespace std;
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 
+
+const int n=5;
 void solve() 
 {
-    int a,b;
-    cin>>a>>b;
-    int sq;
-    sq=a*b;
-    if (sq%2==0)
-    {
-        cout<< sq/2;
-    }
-    else cout<< (sq-1)/2;
-    
+   int mat[n+1][n+1];
+   for (int i = 0; i < n; i++)
+   {
+      for (int j = 0; j < n; j++)
+         cin >> mat[i][j];
+   }
+
+   int i, j;
+
+   for (i = 0; i < n; i++)
+   {
+      for (j = 0; j < n; j++)
+      {
+         if (mat[i][j] == 1)
+            break;
+      }
+      if (mat[i][j]==1)
+      break;
+   }
+   int count{};
+
+   if (i<2)
+   count+= 2-i;
+   if (i>2) 
+   count +=i-2;
+
+   if (j<2)
+   count+= 2-j;
+   if (j>2) 
+   count +=j-2;
+
+   cout<< count;
+
 }
 
 int main() 
@@ -28,3 +53,12 @@ int main()
 	cin.tie(0);
 	solve();
 }
+
+
+
+
+
+
+
+
+
