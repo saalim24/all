@@ -1,12 +1,21 @@
-//author:Saalim24
-#include <bits/stdc++.h>
-using namespace std;
-#define ll long long
-#define ld long double
+/*Author: Saalim24
+2022
+*/
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <cmath>
 #define vt vector
 #define endl "\n"
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
+#define Saalim int t; cin>>t; while (t--) 
+typedef long long ll;
+typedef long double ld;
+using namespace std;
 
 void solve() 
 {
@@ -17,8 +26,5 @@ int main()
 {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-	int t;
-	cin>>t;
-	while (t--)
 	solve();
 }

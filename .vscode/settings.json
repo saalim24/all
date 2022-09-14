@@ -8,7 +8,9 @@
         "vector": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "sstream": "cpp",
+        "regex": "cpp"
     },
     "terminal.explorerKind": "integrated"
 }
