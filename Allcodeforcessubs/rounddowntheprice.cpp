@@ -28,7 +28,7 @@ void solve()
       temp/=10;
       count++;      
    }
-   ll pp(pow(10,(count-1)));
+   ll pp=(pow(10,(count-1)));
    cout<< a - pp<<endl;
    
 
