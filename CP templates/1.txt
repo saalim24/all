@@ -1,0 +1,12 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<cctype>
+#define FAST ios::sync_with_stdio(false); cin.tie(0)
+#define line "\n"
+using namespace std;
+int main()
+{
+   
+}

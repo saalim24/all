@@ -1,43 +1,30 @@
-/*Author: Saalim24
-2022
-*/
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <string>
-#include <algorithm>
-#include <vector>
-#include <cmath>
-#include <set>
-#define vt vector
-#define endl "\n"
-#define pb push_back
-#define all(c) (c).begin(), (c).end()
-#define Saalim int t; cin>>t; while (t--) 
-typedef long long ll;
-typedef long double ld;
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<cctype>
+#include<string>
+#define FAST ios::sync_with_stdio(false); cin.tie(0)
+#define line "\n"
 using namespace std;
-
-void solve() 
-{  
-   ll a,count{},temp;
-   cin>> a;
-   temp=a;
-   while (temp!=0)
-   {
-      temp/=10;
-      count++;      
-   }
-   ll pp(pow(10,(count-1)));
-   cout<< a - pp<<endl;
-   
-
-}
-
-int main() 
+int main()
 {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
-   Saalim
-	solve();
+   FAST;
+   string str;
+   cin>> str;
+   int len = str.length();
+   transform(str.begin(),str.end(),str.begin(),::tolower);
+   
+   for (int i =0;i<len;i++)
+   {
+      if (str[i]=='a'||str[i]=='e'||str[i]=='o'||str[i]=='i'||str[i]=='u'||str[i]=='y')
+      continue;
+      else
+      {
+         cout<< '.' << str[i];
+      }
+  
+      
+   }
+
 }

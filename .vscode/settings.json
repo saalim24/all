@@ -10,7 +10,10 @@
         "xutility": "cpp",
         "iostream": "cpp",
         "sstream": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "random": "cpp",
+        "bitset": "cpp",
+        "algorithm": "cpp"
     },
     "terminal.explorerKind": "integrated"
 }
