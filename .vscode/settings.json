@@ -13,7 +13,8 @@
         "regex": "cpp",
         "random": "cpp",
         "bitset": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "iosfwd": "cpp"
     },
     "terminal.explorerKind": "integrated"
 }

@@ -15,7 +15,7 @@
 #include <vector>
 #include <cmath>
 #define vt vector
-#define endl "\n"
+#define line "\n"
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 #define Saalim int t; cin>>t; while (t--) 
