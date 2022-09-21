@@ -51,12 +51,13 @@ node*del(node*head) //deletes first node
 	return temp;
 }
 
-node*ldel(node*head)
+node*ldel(node*head) //deletes last node               time complexity theta n
 {
 	if (head==NULL)
 	return NULL;
-	if (head->next==NULL)
-	return NULL;
+	if (head->next==NULL){
+	delete head;
+	return NULL;}
 	node*temp = head;
 	while (temp->next->next!=NULL)
 	{
@@ -65,6 +66,27 @@ node*ldel(node*head)
 	delete temp->next;
 	temp->next=NULL;
 	
+	return head;
+}
+
+node* insert (node *head,int pos, int data)     //insert a node at any position 
+{
+	node*temp =new node(data);
+	if (pos==1)
+	{
+		temp->next=head;
+		return temp;
+	}
+	node*curr=head;
+
+	for (int i=0;i<pos-2 && curr!=NULL;i++)
+	{
+		curr=curr->next;				
+	}
+	if (curr==NULL)
+	return head;
+	temp->next=curr->next;
+	curr->next=temp;
 	return head;
 }
 
@@ -78,6 +100,7 @@ int main()
 	link = insert(link,1); // insert at beginning function used
 	link= linsert(link,5);// insert at end function used;
 	link=del(link);//deletes first element that is 1
-	link=ldel(link);
+	link=ldel(link);//deletes last element
+	link = insert (link,2,100);//inserts at any position
 	print(link); // print function used
 }
