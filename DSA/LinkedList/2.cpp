@@ -28,21 +28,40 @@ node*display(node*head)
 node*insert(node*head,int data)
 {
     node*temp=new node(data);
-    if (head==NULL) 
-    return temp;
+    if (head==NULL) {
+        temp->next=temp;
+    return temp;}
+    else{
     
     node*curr=head;
     while (curr->next!=NULL)
     {
         curr=curr->next;
     }
-    node*temp= new node(data);
     curr->next=temp;
     temp->prev=curr;
-    return head;
+    return head;}
 
     
 }
+
+node*deletehead(node*head)
+{
+    if (head==NULL)return NULL;
+    else if(head->next==head)
+    {
+        delete head;
+        return NULL;
+    }
+    else {
+        head->data=head->next->data;
+        node*temp=head->next;
+        head->next=head->next->next;
+        delete temp;
+        return head;
+    }
+}
+
 int main()
 {
     node* linked=new node(10);
@@ -51,6 +70,7 @@ int main()
     linked->next->prev= linked;
     linked->next->next->prev= linked->next;
     linked=insert(linked,40);
+    linked = deletehead(linked);
     display(linked);
 
 }

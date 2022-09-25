@@ -1,10 +1,8 @@
-/**
-*    author:  saalim24
-*    created: 24.September.2022 at 16:05:12
-**/ 
-         
 /*
-   stuff you should look for
+       Authored by Saalim24 at 23.September.2022 at 19:16:48
+         
+
+ stuff you should look for
    * int overflow, array bounds
    * special cases (n=1?)
    * do smth instead of nothing and stay organized
@@ -12,6 +10,7 @@
    * DON'T GET STUCK ON ONE APPROACH
 */
 #include<bits/stdc++.h>
+#define vt vector
 #define line "\n"
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
@@ -21,13 +20,17 @@ using namespace std;
 
 void solve() 
 {
-   int n,count{};
-   for(int i=0;i<100;i++)
+   int n;
+   cin>>n;
+   vector<int>v(n);
+   int sum{};
+   for(int i=0;i<n;i++)
    {
-      cin>>n;
-      count++;
+      cin>>v[i];
+      sum+=v[i];
    }
-   cout<< count;
+   if (sum)cout<<"HARD";
+   else cout<<"EASY";
 }
 
 int main() 
