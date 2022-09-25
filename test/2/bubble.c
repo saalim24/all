@@ -27,5 +27,5 @@ int main()
     int arr[6]={5,4,3,2,1,0};
     bubble(arr,6);
     for (int i=0;i<6;i++)
-    printf("%d",arr[i]);
+    printf("%d ",arr[i]);
 }
