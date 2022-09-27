@@ -1,6 +1,6 @@
 /**
 *    author:  saalim24
-*    created: 27.September.2022 at 21:42:27
+*    created: 26.September.2022 at 19:31:36
 **/ 
          
 /*
@@ -21,24 +21,28 @@ using namespace std;
 
 void solve() 
 {
-   int n; cin>>n;
-   char arr[n];
-   set<char> s;
-   for (int i =0;i<n;i++)
+   char arr[9][9];
+   for (int i=1;i<=8;i++)
    {
-      cin>>arr[i];
-
-      s.insert(toupper(arr[i]));
+     for (int j=1;j<=8;j++)
+     {
+        cin>>arr[i][j];
+     }
    }
-   if (s.size()==26)
-   cout<< "YES";
-   else cout<< "NO";
-
+   for (int i=1;i<=8;i++)
+   {
+    for (int j=1;j<=8;j++)
+    {
+       if (arr[i][j]=='#' && arr[i-1][j-1]=='#'&& arr[i+1][j-1]=='#')
+        cout<< i << ' ' << j << line; 
+    }
+   }
 }
 
 int main() 
 {
    ios::sync_with_stdio(0);
    cin.tie(0);
+   int t; cin>>t; while (t--)
    solve();
 }

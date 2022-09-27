@@ -1,6 +1,6 @@
 /**
 *    author:  saalim24
-*    created: 27.September.2022 at 21:42:27
+*    created: 25.September.2022 at 15:26:32
 **/ 
          
 /*
@@ -21,19 +21,25 @@ using namespace std;
 
 void solve() 
 {
-   int n; cin>>n;
-   char arr[n];
-   set<char> s;
-   for (int i =0;i<n;i++)
+   int n,m; cin>>n>>m;
+   ll ans{};
+   ll cur=1;
+   for (int i=0;i<m;i++)
    {
-      cin>>arr[i];
-
-      s.insert(toupper(arr[i]));
+      ll des; cin>>des;
+      if (des>=cur)
+      {
+         ans+=des-cur;
+         cur=des;
+      }
+      else
+      {
+         ans+= (n-cur)+des;
+         cur=des;
+      }
+      
    }
-   if (s.size()==26)
-   cout<< "YES";
-   else cout<< "NO";
-
+   cout<< ans;
 }
 
 int main() 

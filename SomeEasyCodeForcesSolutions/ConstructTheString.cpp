@@ -1,6 +1,6 @@
 /**
 *    author:  saalim24
-*    created: 27.September.2022 at 21:42:27
+*    created: 24.September.2022 at 16:13:08
 **/ 
          
 /*
@@ -21,19 +21,17 @@ using namespace std;
 
 void solve() 
 {
-   int n; cin>>n;
-   char arr[n];
-   set<char> s;
-   for (int i =0;i<n;i++)
+   int t; cin>>t;
+   while (t--)
    {
-      cin>>arr[i];
-
-      s.insert(toupper(arr[i]));
+      int a,b,c;
+      cin>>a>>b>>c;
+      for (int i=0;i<a;i++)
+      {
+         cout<< char((i%c)+97);
+      }
+      cout<< line;
    }
-   if (s.size()==26)
-   cout<< "YES";
-   else cout<< "NO";
-
 }
 
 int main() 

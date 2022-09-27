@@ -1,6 +1,6 @@
 /**
 *    author:  saalim24
-*    created: 27.September.2022 at 21:42:27
+*    created: 25.September.2022 at 15:41:28
 **/ 
          
 /*
@@ -21,18 +21,19 @@ using namespace std;
 
 void solve() 
 {
-   int n; cin>>n;
-   char arr[n];
-   set<char> s;
-   for (int i =0;i<n;i++)
+   string a,b;
+   cin>>a>>b;
+   vector<int>v;
+   for (int i=0;i<a.length();i++)
    {
-      cin>>arr[i];
-
-      s.insert(toupper(arr[i]));
+      if (a[i]!=b[i])
+      {
+         v.pb(1);
+      }
+      else v.pb(0);
    }
-   if (s.size()==26)
-   cout<< "YES";
-   else cout<< "NO";
+   for (auto i:v)
+   cout<<i;
 
 }
 
