@@ -5,7 +5,6 @@
 #include<bits/stdc++.h>
 #define endl "\n"
 #define line "\n"
-#define push push_back
 using namespace std;
 
 void solve()
