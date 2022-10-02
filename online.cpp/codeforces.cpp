@@ -1,15 +1,15 @@
 /**
 *    author:  saalim24
-*    created: 01.October.2022 at 19:06:52
+*    created: 02.October.2022 at 18:13:16
 **/ 
 #include<bits/stdc++.h>
 #define endl "\n"
 #define line "\n"
+#define push push_back
 using namespace std;
 
 void solve()
 {
-
 }
 
 
