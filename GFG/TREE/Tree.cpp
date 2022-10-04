@@ -123,8 +123,8 @@ void printleftloop(node *root)
     q.push(root);
     while (!q.empty())
     {
-        int count = q.size();
-        for (int i = 0; i < count; i++)
+        int count = q.size(); 
+        for (int i = 0; i < count; i++) // do not use q.size() in loop because it will change
         {
             node *curr = q.front();
             q.pop();
@@ -170,6 +170,8 @@ bool balance(node*root)
 
 int main()
 {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     cout << boolalpha;
     node *root                = new node(10);
     root->left                = new node(20);
@@ -182,7 +184,7 @@ int main()
     traversal(root);
     cout << endl
          << "=================================================" << endl;
-    cout << "            K distance from Root\n";
+    cout << "            K distance nodes from Root\n";
     kdis(root, 2);
     cout << endl
          << "=================================================" << endl;
