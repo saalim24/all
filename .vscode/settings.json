@@ -14,7 +14,8 @@
     "random": "cpp",
     "bitset": "cpp",
     "algorithm": "cpp",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "new": "cpp"
   },
   "terminal.explorerKind": "integrated",
   "C_Cpp_Runner.cCompilerPath": "C:/MinGW/bin/gcc.exe",

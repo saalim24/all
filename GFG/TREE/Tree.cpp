@@ -138,14 +138,45 @@ void printleftloop(node *root)
     }
 }
 
+bool child(node *root) // children sum property
+{
+    if (root==NULL || root->left == NULL && root->right == NULL)
+        return true;
+    int sum{};
+    if (root->right != NULL)
+        sum += root->right->data;
+    if (root->left != NULL)
+        sum += root->left->data;
+    return ((root->data == sum )&& child(root->left)&& child(root->right));
+}
+
+
+//check if the tree is balance or not .. In a Balanced Binary Tree for every node, the 
+//difference between heights of left subtree and right subtree should not be more than one.
+bool balance(node*root)
+{
+    if (root==NULL)
+    return 0;
+    int lh= balance(root->left);
+    if (lh==-1)return -1;
+    int rh=balance(root->right);
+    if (rh==-1)return -1;
+    if(abs(lh-rh)>=1) return -1;
+    else 
+    return (max(rh,lh)+1);
+
+}
+
+
 int main()
 {
-    node *root = new node(10);
-    root->left = new node(20);
-    root->right = new node(30);
-    root->left->left = new node(40);
-    root->left->right = new node(50);
-    root->right->right = new node(70);
+    cout << boolalpha;
+    node *root                = new node(10);
+    root->left                = new node(20);
+    root->right               = new node(30);
+    root->left->left          = new node(40);
+    root->left->right         = new node(50);
+    root->right->right        = new node(70);
     root->right->right->right = new node(80);
     cout << "            Traversal\n";
     traversal(root);
@@ -169,10 +200,17 @@ int main()
     cout << getmax(root) << " is The Max Value";
     cout << endl
          << "=================================================" << endl;
-    printleft(root, 1);
+    printleft(root, 1); cout<< " print left view using recursion";
     cout << endl
          << "=================================================" << endl;
-    printleftloop(root);
+    printleftloop(root);cout<< " print left view using loop";
     cout << endl
          << "=================================================" << endl;
+    cout << child(root);
+    cout << " children sum property" << endl
+         << "=================================================" << endl;
+    cout << balance(root) << " balanced or not";
+    cout << endl
+    << "=================================================" << endl;
+
 }
