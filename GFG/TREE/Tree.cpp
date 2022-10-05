@@ -12,6 +12,14 @@ struct node
     }
 };
 
+void printlist(node *head){             //prints linked list 
+    node *curr=head;
+    while(curr!=NULL){
+        cout<<curr->data<<" ";
+        curr=curr->right;
+    }
+}
+
 void traversal(node *root)
 {
     if (root != NULL)
@@ -167,6 +175,46 @@ bool balance(node*root)
 
 }
 
+int width(node *root)    //the name itself suggests
+{
+    if (root == NULL)
+        return 0;
+    int res{};
+    queue<node *> q;
+    q.push(root);
+
+    while (!q.empty())
+    {
+        int count = q.size();
+        res = max(res, count);
+        for (int i = 0; i < count; i++)
+        {
+            node *curr = q.front();
+            q.pop();
+            if (curr->left != NULL)
+                q.push(curr->left);
+            if (curr->right != NULL)
+                q.push(curr->right);
+        }
+    }
+    return res;
+}
+
+
+node* BTtoDLL(node*root)    //Binary tree to doubly linked list lol 
+{
+    static node*prev =NULL;
+    if (root==NULL)return root;
+    node*head = BTtoDLL(root->left);
+    if (prev==NULL){head=root;}
+    else{
+        root->left=prev;
+        prev->right=root;
+    }
+    prev=root;
+    BTtoDLL(root->right);
+    return head;
+}
 
 int main()
 {
@@ -214,5 +262,12 @@ int main()
     cout << balance(root) << " balanced or not";
     cout << endl
     << "=================================================" << endl;
+    cout<< width(root) << " is the width of the three";
+    cout<< endl << "=================================================" << endl;
+    node*head=BTtoDLL(root);
+    printlist(head);
+    cout<< " prints linked list made from tree";
+    cout<< endl << "=================================================" << endl;
+
 
 }

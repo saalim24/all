@@ -1,25 +1,35 @@
 /**
 *    author:  saalim24
-*    created: 04.October.2022 at 10:51:46
+*    created: 05.October.2022 at 15:00:06
 **/ 
-#include<iostream>
+#include<bits/stdc++.h>
 #define endl "\n"
 #define line "\n"
-#define ll long long long
+#define ll long long
 using namespace std;
 
 void solve()
 {
-    for (int i=0;i<128;i++)
-    cout<< char(i) << endl;  
-
+   int n; cin>>n;
+   int maxx=-1;
+   int count{};
+   int t; cin>>t;
+   for (int i=1;i<(n*2);i++)
+   {
+      int temp; cin>> temp;
+      if (i%2)
+      count+=temp;
+      if (!(i%2))
+      count-=temp;
+      maxx=max(count,maxx);
+   }
+   cout<< maxx;
 }
 
 int main() 
 {
    ios::sync_with_stdio(0);
    cin.tie(0);
-   cout<< boolalpha;
    solve();
 }
 /*
