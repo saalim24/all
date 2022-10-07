@@ -20,7 +20,7 @@ void printlist(node *head){             //prints linked list
     }
 }
 
-void traversal(node *root)
+void traversal(node *root)       //inorder traversal of tree (left  then  root  then  right)
 {
     if (root != NULL)
     {
@@ -175,7 +175,7 @@ bool balance(node*root)
 
 }
 
-int width(node *root)    //the name itself suggests
+int width(node *root)    //the name itself suggests lol
 {
     if (root == NULL)
         return 0;
@@ -201,7 +201,7 @@ int width(node *root)    //the name itself suggests
 }
 
 
-node* BTtoDLL(node*root)    //Binary tree to doubly linked list lol 
+node* BTtoDLL(node*root)    //Binary tree to doubly linked list
 {
     static node*prev =NULL;
     if (root==NULL)return root;
