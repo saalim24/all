@@ -127,7 +127,7 @@ bool child(Node*root)
     int sum = root->data;
     if (root->left!=NULL)
     sum+=root->left->data;
-    if  (root->right->data!=NULL)
+    if  (root->right!=NULL)
     sum+=root->right->data;
     return (root->data==sum && child(root->left)&&child (root->right));
 }
@@ -167,6 +167,51 @@ int widht(Node*root)
     return res;
 }
 
+void printlist(Node*head)
+{
+    if (head ==NULL)return;
+    Node*curr=head;
+    while (curr!=NULL)
+    {
+        cout<< curr->data<<' ';
+        curr=curr->right;
+    }
+
+}
+
+Node*BTtoLL(Node*root)
+{
+    static Node*prev=NULL;
+    if (root==NULL)return root;
+    Node*head = BTtoLL(root->left);
+    if (prev==NULL) head = root;
+    else 
+    {
+        root->left=prev;
+        prev->right=root;
+    }
+    prev=root;
+    BTtoLL(root->right);
+    return head;
+}
+
+Node*construct(int pre[],int in[], int is,int ie)       // create a binary tree from inorder and preorder lists
+{
+    static int preindex{};
+    if (is>ie)return NULL;
+    Node*root=new Node(pre[preindex++]);
+
+    int inindex{};
+    for (int i=0;i<ie;i++)
+    {
+        if (in[i]==root->data)
+        inindex=i;
+        break;
+    }
+    root->left=construct(pre,in,is,inindex-1);
+    root->right=construct(pre,in,inindex+1,ie);
+    return root;
+}
 
 
 int main()
@@ -201,8 +246,8 @@ int main()
     cout<< balance(tree);
     cout<< endl;
     cout<< widht(tree);
-
-
-
-
+    cout<< endl;
+    Node*head=BTtoLL(tree);
+    printlist(head);
+    cout<<endl;
 }

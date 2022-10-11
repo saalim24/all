@@ -1,37 +1,31 @@
+/**
+*    author:  saalim24
+*    created: 11.October.2022 at 14:28:02
+**/ 
 #include<bits/stdc++.h>
+#define endl "\n"
+#define line "\n"
+#define ll long long
 using namespace std;
-struct Node{
-    int data;
-    Node*right;
-    Node*left;
-    Node(int x)
-    {
-        data=x;
-        right=left=NULL;
-    }
-};
-void display(Node*root)
+
+void solve()
 {
-    if (root==NULL)return;
-    cout<< (root->data);
-    display(root->left);
-    display(root->right);
+    int n; cin>>n;
+    int sum =n-2;
+    cerr << sum;
 }
 
-
-
-
-
-
-int main()
+int main() 
 {
-    Node*tree=new Node(1);
-    tree->right=new Node(5);
-    tree->left=new Node(2);
-    tree->left->left=new Node(3);
-    tree->left->right=new Node(4);
-    tree->right->left=new Node(6);
-    tree->right->right=new Node(7);
-    display (tree);
-
+   ios::sync_with_stdio(0);
+   cin.tie(0);
+   solve();
 }
+/*
+   stuff you should look for
+   * int overflow, array bounds
+   * special cases (n=1?)
+   * do smth instead of nothing and stay organized
+   * WRITE STUFF DOWN
+   * DON'T GET STUCK ON ONE APPROACH
+*/

@@ -216,6 +216,52 @@ node* BTtoDLL(node*root)    //Binary tree to doubly linked list
     return head;
 }
 
+node *cTree(int in[], int pre[], int is, int ie)
+{
+    static int preIndex{};
+    if (is > ie)
+        return NULL;
+    node *root = new node(pre[preIndex++]);
+
+    int inIndex;
+    for (int i = is; i <= ie; i++)
+    {
+        if (in[i] == root->data)
+        {
+            inIndex = i;
+            break;
+        }
+    }
+    root->left = cTree(in, pre, is, inIndex - 1);
+    root->right = cTree(in, pre, inIndex + 1, ie);
+    return root;
+}
+
+int res=0;
+int height(node *root){
+    if(root==NULL)
+        return 0;
+    int lh=height(root->left);
+    int rh=height(root->right);
+    res=max(res,1+lh+rh);
+    return (1+max(lh,rh));
+}
+
+node *lca(node *root, int n1, int n2){
+    if(root==NULL)return NULL;
+    if(root->data==n1||root->data==n2)
+        return root;
+    
+    node *lca1=lca(root->left,n1,n2);
+    node *lca2=lca(root->right,n1,n2);
+    
+    if(lca1!=NULL && lca2!=NULL)
+        return root;
+    if(lca1!=NULL)
+        return lca1;
+    else
+        return lca2;
+}
 int main()
 {
     ios::sync_with_stdio(0);
@@ -264,10 +310,22 @@ int main()
     << "=================================================" << endl;
     cout<< width(root) << " is the width of the three";
     cout<< endl << "=================================================" << endl;
-    node*head=BTtoDLL(root);
-    printlist(head);
-    cout<< " prints linked list made from tree";
+    //node*head=BTtoDLL(root);
+    //printlist(head);
+    //cout<< " prints linked list made from tree";
     cout<< endl << "=================================================" << endl;
+    int in[]={20,10,40,30,50};
+	int pre[]={10,20,30,40,50};
+	int n=sizeof(in)/sizeof(in[0]);
+	node*hello=cTree(in, pre, 0, n-1);
+    traversal(hello); cout<< " Made from lists of inorder and preorder tree nodes";
+    cout<< endl << "=================================================" << endl;
+    cout<<"Height: "<<height(root)<<endl;
+	cout<<"Diameter: "<<res;
+    cout<< endl << "=================================================" << endl;
+    int n1=20,n2=50;
+    node *ans=lca(root,n1,n2);
+	cout<<"LCA: "<<ans->data;
 
 
 }
