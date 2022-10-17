@@ -73,6 +73,87 @@ Node*insertlp(Node*root,int x)
     return root;
 }
 
+Node*succs(Node*root)
+{
+    root=root->right;
+    while (root&&root->left!=NULL)
+    {
+        root=root->left;
+    }
+    return root;
+}
+
+Node*del(Node*root,int x)
+{
+    if (root==NULL)
+    return root;
+    else if (root->data>x)
+    root->left=del(root->left,x);
+    else if (root->data<x)
+    root->right=del(root->right,x);
+    else {
+        if (root->left==NULL)
+        {
+            Node*temp=root->right;
+            delete root;
+            return temp;
+        }
+        else if (root->right==NULL)
+        {
+            Node*temp=root->left;
+            delete root;
+            return temp;
+        }
+        else{
+            Node*succ= succs(root);
+            root->data=succ->data;
+            root->right=del(root->right,succ->data);
+        }
+    }
+
+
+}
+
+Node*floor(Node*root,int key)
+{
+    Node*res=root;
+    while (root)
+    {
+        if (root->data==key)
+        return root;
+        else if (root->data>key)
+        {
+            root= root->left;
+        }
+        else 
+        {
+            res=root;
+            root=root->right;
+        }
+
+    }
+    return res;
+}
+Node*ceil(Node*root,int key)
+{
+    Node*res=NULL;
+    while (root!=NULL)
+    {
+    if (root->data==key)
+    return root;
+    else if (root->data<key)
+    {
+        root=root->right;
+    }
+    else {
+        res = root;
+        root=root->left;
+    }
+    }
+    return res;
+
+}
+
 int main()
 {
     Node *root=new Node(15);
@@ -88,6 +169,9 @@ int main()
     cout<< endl;
     root = insert (root,4);
     root = insertlp(root,24);
+    root= del(root,4);
+    
+
 
 }
 
