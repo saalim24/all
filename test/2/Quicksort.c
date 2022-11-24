@@ -1,75 +1,41 @@
-#include<stdio.h>
-
-void quicksort(int number[25],int first,int last){
-
-int i, j, pivot, temp;
-
-if(first<last){
-
-pivot=first;
-
-i=first;
-
-j=last;
-
-while(i<j){
-
-while(number[i]<=number[pivot]&&i<last)
-
-i++;
-
-while(number[j]>number[pivot])
-
-j--;
-
-if(i<j){
-
-temp=number[i];
-
-number[i]=number[j];
-
-number[j]=temp;
-
+#include <stdio.h>
+int partition(int arr[], int l, int h)
+{   
+    int pivot=arr[l];
+    int i=l-1,j=h+1;
+    
+    int num=1;
+    while(num>0){
+        do{
+            i++;
+        }while(arr[i]<pivot);
+        do{
+            j--;
+        }while(arr[j]>pivot);
+        if(i>=j)return j;
+        
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
 }
 
+void qSort(int arr[],int l,int h){
+    if(l<h){
+        int p=partition(arr,l,h);
+        qSort(arr,l,p);
+        qSort(arr,p+1,h);
+    }
 }
-
-temp=number[pivot];
-
-number[pivot]=number[j];
-
-number[j]=temp;
-
-quicksort(number,first,j-1);
-
-quicksort(number,j+1,last);
-
-}
-
-}
-
-int main(){
-
-int i, count, number[25];
-
-printf("Enter some elements (Max. - 25): ");
-
-scanf("%d",&count);
-
-printf("Enter %d elements: ", count);
-
-for(i=0;i<count;i++)
-
-scanf("%d",&number[i]);
-
-quicksort(number,0,count-1);
-
-printf("The Sorted Order is: ");
-
-for(i=0;i<count;i++)
-
-printf(" %d",number[i]);
-
-return 0;
-
+ 
+int main() {
+	
+    int arr[]={8,4,7,9,3,10,5};
+	
+	int n=sizeof(arr)/sizeof(arr[0]);
+	
+	qSort(arr,0,n-1);
+	
+	for(int i=0;i<n;i++)
+	    printf("%d ",arr[i]);
 }
